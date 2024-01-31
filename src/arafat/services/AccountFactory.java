@@ -11,7 +11,7 @@ public class AccountFactory {
         switch (type) {
             case CURRENT:
                 return new CurrentAccount();
-            case SAVING:
+            case SAVINGS:
                 return new SavingsAccount();
             case SALARY:
                 return new SalaryAccount();

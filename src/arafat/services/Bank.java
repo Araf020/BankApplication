@@ -3,6 +3,7 @@ package src.arafat.services;
 import java.util.*;
 
 import src.arafat.model.Account;
+import src.arafat.util.AccountType;
 
 public class Bank {
     private static volatile Bank instance;
@@ -24,9 +25,16 @@ public class Bank {
     }
 
     // Implement methods like createAccount, displayAllAccounts, updateAccount, etc.
-    public void createAccount(Account account) {
+    public Account createAccount(AccountType type, String accountName, double balance) {
+        Account account = AccountFactory
+                        .createAccount(type)
+                        .setAccountName(accountName)
+                        .setBalance(balance);
+                        
         accounts.add(account);
+        return account;
     }
+    
     public void displayAllAccounts() {
         for (Account account : accounts) {
             System.out.println(account);

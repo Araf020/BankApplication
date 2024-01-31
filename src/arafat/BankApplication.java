@@ -1,25 +1,42 @@
 package src.arafat;
 import java.util.*;
 import java.io.*;
-import src.arafat.services.Bank;;;
+import src.arafat.services.Bank;
+import src.arafat.util.AccountType;;;
 public class BankApplication {
     public static void main(String[] args) {
 
         Bank bank = Bank.getInstance();
         int choice;
-
+        Scanner scanner;
         do {
             displayMenu();
-            try (Scanner scanner = new Scanner(System.in)) {
-                choice = scanner.nextInt();
-                scanner.nextLine(); // Consume newline character
-            }
+            scanner = new Scanner(System.in);
+            
+            choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline character
+            
             switch (choice) {
                 case 1:
-                    // Create a new account
+                     //taking input from user
+                     // name , balance , type
+                    System.out.println("Enter account name: ");
+                    String accountName = scanner.nextLine();
+                    System.out.println("Enter opening account balance: ");
+                    double openingBalance = scanner.nextDouble();
+                    System.out.println("Enter account type (Savings, Current, Salary): ");
+                    //scan the account type
+                    String accountType = scanner.next();
+                    System.out.println("account type: " + accountType);
+                    AccountType type = AccountType.getAccountType(accountType.toUpperCase());
+                    
+                    // Create an account
+                    bank.createAccount(type, accountName, openingBalance);
+                    
                     break;
                 case 2:
                     // Display all accounts
+                    bank.displayAllAccounts();
                     break;
                 case 3:
                     // Update an account
@@ -43,6 +60,8 @@ public class BankApplication {
                     System.out.println("Invalid choice!");
             }
         } while (choice != 8);
+
+        scanner.close();
     }
 
     private static void displayMenu() {
@@ -58,5 +77,7 @@ public class BankApplication {
         System.out.print("Enter your choice: ");
     
     }
+
+    
 
 }
