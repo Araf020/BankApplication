@@ -7,6 +7,7 @@ public class User {
     private Long id;
     private String firstName;
     private String lastName;
+    private String nationalIdNo;
     private String phoneNumber;
     private String email;
     private Date dateOfBirth;
@@ -25,6 +26,11 @@ public class User {
         this.firstName = firstName;
         return this;
     }
+    public User setNationalIdNo(String nationalIdNo) {
+        this.nationalIdNo = nationalIdNo;
+        return this;
+    }
+   
 
 
     
@@ -40,7 +46,7 @@ public class User {
         this.dateOfBirth = dateOfBirth;
         return this;
     }
-    
+
     public String getLastName() {
         return lastName;
     }
@@ -48,6 +54,11 @@ public class User {
         this.lastName = lastName;
         return this;
     }
+
+    public String getNationalIdNo() {
+        return nationalIdNo;
+    }
+    
     public String getPhoneNumber() {
         return phoneNumber;
     }

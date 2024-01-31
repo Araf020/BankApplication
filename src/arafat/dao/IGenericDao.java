@@ -1,12 +1,14 @@
 package src.arafat.dao;
 
-import java.util.Map;
+import java.util.List;
 
 public interface IGenericDao<T> {
     
-    T insert(Long id, T t);
-    T update(Long id, T t);
+    T add( T t);
+    T delete(Long id, T t);
+    T getById(String id, T t);
     void delete(Long id);
-    T get(Long id);
-    Map<Long, T> getAll();
+    boolean delete(String id);
+   
+    List<T> getAll();
 }
