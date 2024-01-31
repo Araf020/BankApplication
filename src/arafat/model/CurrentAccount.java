@@ -18,7 +18,7 @@ public class CurrentAccount extends Account {
 
     @Override
     public String toString() {
-        return "Account{" + "accountNumber=" + getAccountNumber() + "accountType= Current"  + ", accountName=" + getAccountName() + ", balance=" + getBalance() +", openingDate=" + getOpeningDate().toString() + ", lastUpdateDate=" + getLastUpdateDate().toString() + '}';
+        return "Account{" + "accountNumber=" + getAccountNumber() + "accountType= Current"  + ", accountName=" + getUser().getFirstName() + ", balance=" + getBalance() +", openingDate=" + getOpeningDate().toString() + ", lastUpdateDate=" + getLastUpdateDate().toString() + '}';
     }
     
 

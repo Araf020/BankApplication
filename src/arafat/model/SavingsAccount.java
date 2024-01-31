@@ -22,6 +22,6 @@ public class SavingsAccount extends Account{
 
     @Override
     public String toString() {
-        return "Account{" + "accountNumber=" + getAccountNumber() + "accountType= Savings"  + ", accountName=" + getAccountName() + ", balance=" + getBalance() +", openingDate=" + getOpeningDate().toString() + ", lastUpdateDate=" + getLastUpdateDate().toString() + '}';
+        return "Account{" + "accountNumber=" + getAccountNumber() + "accountType= Savings"  + ", accountName=" + getUser().getFirstName() + ", balance=" + getBalance() +", openingDate=" + getOpeningDate().toString() + ", lastUpdateDate=" + getLastUpdateDate().toString() + '}';
     }
 }

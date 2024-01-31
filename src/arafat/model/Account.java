@@ -7,7 +7,7 @@ public abstract class Account {
 
     //define attributes
     private String accountNumber;
-    private String accountName;
+    private User user;
     private double balance;
     private double openingBalanceLimit;
     private double minimumBalanceToMaintain;
@@ -16,6 +16,7 @@ public abstract class Account {
     private double transactionFee;
     private double interestRate;
     private String phoneNumber;
+
     
     
     private LocalDateTime openingDate; 
@@ -46,11 +47,11 @@ public abstract class Account {
     }
 
 
-    public Account setAccountName(String accountName) {
-        this.accountName = accountName;
-        this.lastUpdateDate = LocalDateTime.now();
+    public Account setUser(User user) {
+        this.user = user;
         return this;
     }
+
     public Account setBalance(double balance) {
         this.balance = balance;
         this.lastUpdateDate = LocalDateTime.now();
@@ -132,8 +133,8 @@ public abstract class Account {
     public String getAccountNumber() {
         return accountNumber;
     }
-    public String getAccountName() {
-        return accountName;
+    public User getUser() {
+        return user;
     }
 
     public LocalDateTime getOpeningDate() {

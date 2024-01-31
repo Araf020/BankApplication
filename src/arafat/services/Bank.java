@@ -3,6 +3,7 @@ package src.arafat.services;
 import java.util.*;
 
 import src.arafat.model.Account;
+import src.arafat.model.User;
 import src.arafat.util.AccountType;
 
 public class Bank {
@@ -28,9 +29,11 @@ public class Bank {
     public Account createAccount(AccountType type, String accountName, double balance) {
         Account account = AccountFactory
                         .createAccount(type)
-                        .setAccountName(accountName)
+                        .setUser(
+                                    new User().setFirstName(accountName)
+                                )
                         .setBalance(balance);
-                        
+
         accounts.add(account);
         return account;
     }
