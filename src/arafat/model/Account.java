@@ -2,7 +2,7 @@ package src.arafat.model;
 
 import java.time.LocalDateTime;
 
-import src.arafat.exceptions.InsufficientAmountException;
+import src.arafat.exceptions.InvalidAmountException;
 import src.arafat.exceptions.InsufficientBalanceException;
 import src.arafat.util.AccNoGenerator;
 
@@ -39,9 +39,9 @@ public abstract class Account {
     }
 
     //define abstract methods
-    public abstract void deposit(double amount) throws InsufficientAmountException ;
-    public abstract void withdraw(double amount) throws InsufficientBalanceException, InsufficientAmountException;
-    public abstract double getBalance();
+    public abstract void deposit(double amount) throws InvalidAmountException ;
+    public abstract void withdraw(double amount) throws InsufficientBalanceException, InvalidAmountException;
+    
 
 
     public Account setAccountNumber(String accountNumber) {
@@ -111,6 +111,9 @@ public abstract class Account {
 
     public double getOpeningBalanceLimit() {
         return openingBalanceLimit;
+    }
+    public  double getBalance() {
+        return balance;
     }
 
     public double getMinimumBalanceToMaintain() {

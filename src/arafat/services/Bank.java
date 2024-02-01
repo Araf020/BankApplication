@@ -2,6 +2,8 @@ package src.arafat.services;
 
 import java.util.*;
 
+import src.arafat.exceptions.InsufficientBalanceException;
+import src.arafat.exceptions.InvalidAmountException;
 import src.arafat.model.Account;
 import src.arafat.model.User;
 import src.arafat.util.AccountType;
@@ -42,6 +44,40 @@ public class Bank {
         for (Account account : accounts) {
             System.out.println(account);
         }
+    }
+
+    public void deposit(String accountNumber, double amount) throws InvalidAmountException, Exception {
+        Account account = getAccount(accountNumber);
+        
+        if (account != null) {
+            account.deposit(amount);
+        }
+        else {
+            throw new Exception("Account not found!");
+        }
+    }
+
+   
+
+    public void withdraw(String accountNumber, double amount) throws InvalidAmountException, InsufficientBalanceException, Exception{
+        Account account = getAccount(accountNumber);
+        
+        if (account != null) {
+            account.withdraw(amount);
+        }
+        else {
+            throw new Exception("Account not found!");
+        }
+    }
+
+    private Account getAccount(String accountNumber) {
+        for (Account account : accounts) {
+            
+            if (account.getAccountNumber().equals(accountNumber)) {
+                return account;
+            }
+        }
+        return null;
     }
 
 
