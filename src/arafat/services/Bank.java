@@ -124,7 +124,7 @@ public class Bank {
 
         if(!ValidityCheck.isPhoneValid(newPhoneNumber))
             throw new Exception(">>>>>>Invalid Phone Number!<<<<<<");
-            
+
         Account account = getAccount(accountNumber);
         if (account != null) {
             account.getUser().setPhoneNumber(newPhoneNumber);   
@@ -141,6 +141,7 @@ public class Bank {
         if (account != null) {
            boolean isSuccess =  accounts.remove(account);
             if(isSuccess){
+                System.out.println("Account deleted successfully!");
                 return true;
             }
             throw new Exception(">>>>>>Something went wrong!<<<<<<");

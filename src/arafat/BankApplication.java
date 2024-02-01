@@ -92,6 +92,9 @@ public class BankApplication {
                     break;
                 case 4:
                     // Delete an account
+                    System.out.println("Enter account number: ");
+                    inputAccountNumber = scanner.next();
+                    bank.deleteAccount(inputAccountNumber);
                     break;
                 case 5:
                     // Deposit an amount into an account
