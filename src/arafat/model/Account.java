@@ -27,7 +27,7 @@ public abstract class Account {
 
     public Account() {
         openingBalanceLimit=0;
-        minimumBalanceToMaintain=0;
+        minimumBalanceToMaintain=500;
         monthlyTransactionLimit=100000;
         dailyTransactionLimit=50000;
         transactionFee=0;

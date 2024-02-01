@@ -18,7 +18,7 @@ public class BankApplication {
 
         UI userInterface = new UI(new Scanner(System.in), bank);
         do {
-            displayMenu();
+            userInterface.displayMenu();
             scanner = new Scanner(System.in);
             
             choice = scanner.nextInt();
@@ -40,57 +40,17 @@ public class BankApplication {
                     userInterface.updateAccount();                    
                     break;
                 case 4:
-                    
+                     userInterface.deleteAccount();
                     break;
                 case 5:
-                    // Deposit an amount into an account
-                    System.out.println("Enter account number: ");
-                    inputAccountNumber = scanner.next();
-                    System.out.println("Enter amount to deposit: ");
-                    inputAmount = scanner.nextDouble();
-                    bank.deposit(inputAccountNumber, inputAmount);
+                      userInterface.deposit();
                     break;
                 case 6:
-                    // Withdraw an amount from an account
-                    System.out.println("Enter account number: ");
-                    inputAccountNumber = scanner.next();
-                    System.out.println("Enter amount to withdraw: ");
-                    inputAmount = scanner.nextDouble();
-
-                    bank.withdraw(inputAccountNumber, inputAmount);
+                    userInterface.withdraw();
 
                     break;
                 case 7:
-                    // Search for an account
-                    System.out.println("Select Search Options:");
-                    System.out.println("1. Search by account number");
-                    System.out.println("2. Search by account name");
-                    System.out.println("3. Search by phone number");
-                    int searchChoice = scanner.nextInt();
-                    if(searchChoice == 1){
-                        System.out.println("Enter account number: ");
-                        inputAccountNumber = scanner.next();
-                        BaseFilter filterOptions = new BaseFilter();
-                        filterOptions.searchByAccountNumber = true;
-                        bank.searchAccounts(filterOptions,inputAccountNumber);
-                    }
-                    else if(searchChoice == 2){
-                        System.out.println("Enter account name: ");
-                        accountName = scanner.next();
-                        BaseFilter filterOptions = new BaseFilter();
-                        filterOptions.searchByAccountName = true;
-                        bank.searchAccounts(filterOptions,accountName);
-                    }
-                    else if(searchChoice == 3){
-                        System.out.println("Enter phone number: ");
-                        String phoneNumber = scanner.next();
-                        BaseFilter filterOptions = new BaseFilter();
-                        filterOptions.searchByPhoneNumber = true;
-                        bank.searchAccounts(filterOptions,phoneNumber);
-                    }
-                    else{
-                        System.out.println("Invalid choice!");
-                    }
+                    userInterface.search();
                     break;
                 case 8:
                     System.out.println("Exiting...");
@@ -107,19 +67,7 @@ public class BankApplication {
         scanner.close();
     }
 
-    private static void displayMenu() {
-        System.out.println("Banking Application Menu:");
-        System.out.println("1. Create a new account");
-        System.out.println("2. Display all accounts");
-        System.out.println("3. Update an account");
-        System.out.println("4. Delete an account");
-        System.out.println("5. Deposit an amount into your account");
-        System.out.println("6. Withdraw an amount from your account");
-        System.out.println("7. Search for account");
-        System.out.println("8. Exit");
-        System.out.print("Enter your choice: ");
     
-    }
 
     
 
