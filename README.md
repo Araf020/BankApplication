@@ -41,3 +41,6 @@ Project Structure
 * Open the project in any IDE
 * Run the BankApplication.java file
 
+
+Developed by [Arafat Hossain]
+
