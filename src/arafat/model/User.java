@@ -12,6 +12,14 @@ public class User {
     private String email;
     private Date dateOfBirth;
 
+    public User() {
+        firstName = "";
+        lastName = "";
+        nationalIdNo = "";
+        phoneNumber = "";
+        email = "";
+        
+    }
     public Long getId() {
         return id;
     }
@@ -67,6 +75,12 @@ public class User {
     }
     public Date getDateOfBirth() {
         return dateOfBirth;
+    }
+
+
+    @Override
+    public String toString() {
+        return "User [ firstName = " + firstName +  ", lastName = " + lastName +  "dateOfBirth = " + dateOfBirth + ", email = " + email +  ", nationalIdNo=" + nationalIdNo + ", phoneNumber=" + phoneNumber + "]";
     }
 
     

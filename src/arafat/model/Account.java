@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import src.arafat.exceptions.InvalidAmountException;
 import src.arafat.exceptions.InsufficientBalanceException;
 import src.arafat.util.AccNoGenerator;
+import src.arafat.util.AccountType;
 
 public abstract class Account {
 
@@ -18,8 +19,7 @@ public abstract class Account {
     private double dailyTransactionLimit;
     private double transactionFee;
     private double interestRate;
-    private String phoneNumber;
-
+    private AccountType accountType;
     
     
     private LocalDateTime openingDate; 
@@ -99,14 +99,7 @@ public abstract class Account {
         return this;
     }
 
-    public Account setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-        return this;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+   
 
 
     public double getOpeningBalanceLimit() {
@@ -151,10 +144,18 @@ public abstract class Account {
         return lastUpdateDate;
     }
 
-    // @Override
-    // public String toString() {
-    //     return "Account{" + "accountNumber=" + accountNumber + ", accountName=" + accountName + ", balance=" + balance +", openingDate=" + openingDate.toString() + ", lastUpdateDate=" + lastUpdateDate.toString() + '}';
-    // }
+    public AccountType getAccountType() {
+        return accountType;
+    }
+    public Account setAccountType(AccountType accountType) {
+        this.accountType = accountType;
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return "Account Details: " + "\n\tAccount Number = " + getAccountNumber() + "\n\tAccountType = "+accountType + ",\n\tAccountName = " + user.getFirstName() + " " +user.getLastName() + ",\n\tBalance = " + getBalance() +",\n\tOpeningDate = " + getOpeningDate().toString() + ",\n\tLastUpdateDate = " + getLastUpdateDate().toString()+"\n\tContact Number = "+ user.getPhoneNumber() ;
+    }
 
     
 

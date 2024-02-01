@@ -10,11 +10,11 @@ public class AccountFactory {
     public static Account createAccount(AccountType type) {
         switch (type) {
             case CURRENT:
-                return new CurrentAccount();
+                return new CurrentAccount().setAccountType(type);
             case SAVINGS:
-                return new SavingsAccount();
+                return new SavingsAccount().setAccountType(type);
             case SALARY:
-                return new SalaryAccount();
+                return new SalaryAccount().setAccountType(type);
             default:
                 throw new IllegalArgumentException("Unsupported account type");
         }

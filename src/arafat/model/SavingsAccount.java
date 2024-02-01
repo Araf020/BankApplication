@@ -40,8 +40,8 @@ public class SavingsAccount extends Account{
         }
     }
 
-    @Override
-    public String toString() {
-        return "Account Details: " + "\n\tAccount Number = " + getAccountNumber() + "\n\tAccountType = Savings"  + ",\n\tAccountName=" + getUser().getFirstName() + ",\n\tBalance = " + getBalance() +",\n\tOpeningDate=" + getOpeningDate().toString() + ",\n\tLastUpdateDate=" + getLastUpdateDate().toString() ;
-    }
+    // @Override
+    // public String toString() {
+    //     return "Account Details: " + "\n\tAccount Number = " + getAccountNumber() + "\n\tAccountType = Savings"  + ",\n\tAccountName=" + getUser().getFirstName() + ",\n\tBalance = " + getBalance() +",\n\tOpeningDate=" + getOpeningDate().toString() + ",\n\tLastUpdateDate=" + getLastUpdateDate().toString() ;
+    // }
 }
