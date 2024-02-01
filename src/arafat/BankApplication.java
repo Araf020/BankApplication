@@ -2,6 +2,7 @@ package src.arafat;
 import java.util.*;
 import java.io.*;
 
+import src.arafat.UI.UI;
 import src.arafat.filter.BaseFilter;
 import src.arafat.services.Bank;
 import src.arafat.util.AccountType;;;
@@ -11,8 +12,11 @@ public class BankApplication {
         Bank bank = Bank.getInstance();
         int choice;
         String inputAccountNumber;
+        String accountName;
         double inputAmount;
         Scanner scanner;
+
+        UI userInterface = new UI(new Scanner(System.in), bank);
         do {
             displayMenu();
             scanner = new Scanner(System.in);
@@ -23,78 +27,20 @@ public class BankApplication {
             try{
             switch (choice) {
                 case 1:
-                     //taking input from user
-                     // name , balance , type
-                    System.out.println("Enter account name: ");
-                    String accountName = scanner.nextLine();
-                    System.out.println("Enter opening account balance: ");
-                    double openingBalance = scanner.nextDouble();
-                    System.out.println("opening balance: " + openingBalance);
-                    System.out.println("Enter account type (Savings, Current, Salary): ");
-                    //scan the account type
-                    String accountType = scanner.next();
-                    System.out.println("account type: " + accountType);
-                    AccountType type = AccountType.getAccountType(accountType.toUpperCase());
+                     userInterface.showCreateAccountOption();
 
-                    
-                    // Create an account
-                    bank.createAccount(type, accountName, openingBalance);
                     
                     break;
                 case 2:
                     // Display all accounts
-                    bank.displayAllAccounts();
+                    userInterface.displayAllAccounts();
                     break;
                 case 3:
                     // Update an account
-                    System.out.println("Enter account number: ");
-                    inputAccountNumber = scanner.next();
-                    while (true) {
-                        System.out.println(("Select Update Options:"));
-                        System.out.println("1. Update account name");
-                        System.out.println("2. Update phone number");
-                        System.out.println("3. Update account type");
-                        System.out.println( "4. Exit");
-                        int updateChoice = scanner.nextInt();
-                        if(updateChoice == 4)
-                        {
-                            break;
-                        }
-                        if(updateChoice == 1)
-                        {
-                            System.out.println("Enter new account name: ");
-                            accountName = scanner.next();
-                            bank.updateAccountName(inputAccountNumber, accountName);
-                            System.out.println("Want to update more? (y/n)");
-                            String more = scanner.next();
-                            if(more.equals("n"))
-                            {
-                                break;
-                            }
-                        }
-                        else if(updateChoice == 2)
-                        {
-                            System.out.println("Enter new phone number: ");
-                            String phoneNumber  = scanner.next();
-                            bank.updateAccountPhoneNumber(inputAccountNumber, phoneNumber);
-                            System.out.println("Want to update more? (y/n)");
-                            String more = scanner.next();
-                            if(more.equals("n"))
-                            {
-                                break;
-                            }
-                        }
-
-                
-                    }
-                    
-
+                    userInterface.updateAccount();                    
                     break;
                 case 4:
-                    // Delete an account
-                    System.out.println("Enter account number: ");
-                    inputAccountNumber = scanner.next();
-                    bank.deleteAccount(inputAccountNumber);
+                    
                     break;
                 case 5:
                     // Deposit an amount into an account
